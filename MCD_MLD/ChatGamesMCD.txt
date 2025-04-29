@@ -1,0 +1,63 @@
+CREATE TABLE Utilisateur(
+   Id_Utilisateur COUNTER,
+   email VARCHAR(100),
+   password VARCHAR(100),
+   pseudo VARCHAR(50),
+   age INT,
+   langue VARCHAR(50),
+   styleJeu VARCHAR(50),
+   imageProfil VARCHAR(255),
+   description VARCHAR(255),
+   PRIMARY KEY(Id_Utilisateur)
+);
+
+CREATE TABLE Jeu(
+   Id_Jeu COUNTER,
+   nom VARCHAR(50),
+   description VARCHAR(255),
+   images VARCHAR(255),
+   PRIMARY KEY(Id_Jeu)
+);
+
+CREATE TABLE Messagerie(
+   Id_Messagerie COUNTER,
+   nomUtilisateur VARCHAR(50),
+   message VARCHAR(50),
+   PRIMARY KEY(Id_Messagerie)
+);
+
+CREATE TABLE Communauter(
+   Id_Communauter COUNTER,
+   nom VARCHAR(50),
+   description VARCHAR(255),
+   langue VARCHAR(50),
+   styleJeu VARCHAR(50),
+   accroche VARCHAR(50),
+   Id_Messagerie INT NOT NULL,
+   PRIMARY KEY(Id_Communauter),
+   FOREIGN KEY(Id_Messagerie) REFERENCES Messagerie(Id_Messagerie)
+);
+
+CREATE TABLE Jeu_Utilisateur(
+   Id_Utilisateur INT,
+   Id_Jeu INT,
+   PRIMARY KEY(Id_Utilisateur, Id_Jeu),
+   FOREIGN KEY(Id_Utilisateur) REFERENCES Utilisateur(Id_Utilisateur),
+   FOREIGN KEY(Id_Jeu) REFERENCES Jeu(Id_Jeu)
+);
+
+CREATE TABLE Commun_Utilisateur(
+   Id_Utilisateur INT,
+   Id_Communauter INT,
+   PRIMARY KEY(Id_Utilisateur, Id_Communauter),
+   FOREIGN KEY(Id_Utilisateur) REFERENCES Utilisateur(Id_Utilisateur),
+   FOREIGN KEY(Id_Communauter) REFERENCES Communauter(Id_Communauter)
+);
+
+CREATE TABLE Message_Utilisateur(
+   Id_Utilisateur INT,
+   Id_Messagerie INT,
+   PRIMARY KEY(Id_Utilisateur, Id_Messagerie),
+   FOREIGN KEY(Id_Utilisateur) REFERENCES Utilisateur(Id_Utilisateur),
+   FOREIGN KEY(Id_Messagerie) REFERENCES Messagerie(Id_Messagerie)
+);

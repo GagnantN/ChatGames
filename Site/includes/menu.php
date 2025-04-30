@@ -9,7 +9,7 @@
 
             switch ($page) {
                 case 'Accueil':
-                    echo "Accueil du site Gaming Gagnant";
+                    echo "Accueil du site ChatGames";
                     break;
                 case 'Formulaire':
                     echo "Inscription d'Utilisateur";
@@ -55,34 +55,29 @@
                     break;
             }
         } else {
-            echo "Accueil - Mon Site";
+            echo "Accueil du site ChatGames";
         }
         ?></title>
-    <link rel="stylesheet" href="../assets/css/stylePC.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
    
 
     <!-- Fonts Atkinson Import de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class ="container">
-            <a href="index.php?page=Accueil"><img src="../assets/images/logo.png" class="logo" alt="Photo du Site Direction Accueil"></a>
-            <a> <img src="../assets/images/recherche.png" class="recherche" alt="Barre de recherche"></a>
-            <a href="index.php?page=Login"><img src="../assets/images/profil.png" class="profil" alt="Profil Utilisateur pour se connecter ou s'inscrire."></a>
-        </div>
-    </header>
     <navbar>
         <div class ="container">
-            <ul>
-                <li><a href="index.php?page=ListePC"><img src="../assets/images/ordi.png" class="logoElement" alt="Liste de Jeu Ordinateur">PC</a></li>
-                <li><a href="index.php?page=ListeConsole"><img src="../assets/images/console.png" class="logoElement" alt="Liste de Jeu Ordinateur">Console</a></li>
-                <li><a href="index.php?page=ListeMobile"><img src="../assets/images/mobile.png" class="logoElement" alt="Liste de Jeu Ordinateur">Mobile</a></li>
-                <li><a href="index.php?page=ListePhysique"><img src="../assets/images/de.png" class="logoElement" alt="Liste de Jeu Ordinateur">Jeux Physique</a></li>
-            </ul>
+            <a><img src="../assets/images/logo.png" class="logo" alt="Logo du Site ChatGames"></a>
+            <a href="index.php?page=accueil"><img src="../assets/images/accueil.png" class="icones" alt="Logo direction accueil">> Accueil</a>
+            <a href="index.php?page=rechercheAmis"><img src="../assets/images/amis.png" class="icones" alt="Logo direction la recherche d'amis">> Recherche amis</a>
+            <a href="index.php?page=communaute"><img src="../assets/images/communauter.png" class="icones" alt="Logo direction la communauté">> Communauté</a>
+            <a href="index.php?page=messagerie"><img src="../assets/images/messagerie.png" class="icones" alt="Logo direction la messagerie">> Messagerie</a>
+            <a href="index.php?page=evenements"><img src="../assets/images/evenement.png" class="icones" alt="Logo direction les évenements">> Évenements</a>
+            <a href="index.php?page=stream"><img src="../assets/images/stream.png" class="icones" alt="Logo direction sur le stream">> Stream</a>
         </div>
     </navbar>
+    
 
     <section>

@@ -69,7 +69,7 @@
 <body>
     <div class="layout">
         <nav class="navbar">
-            <div class="container">
+            <div class="containerMenu">
                 <?php $currentPage = $_GET['page'] ?? 'accueil'; ?>
                 <img src="Site/assets/images/logo.png" class="logo" alt="Logo du Site ChatGames">
                 <a href="index.php?page=accueil" class="<?= $currentPage === 'accueil' ? 'active' : '' ?>"><img src="Site/assets/images/accueil.png" class="icones" alt="Accueil"> Accueil</a>

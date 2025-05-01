@@ -58,7 +58,7 @@
             echo "Accueil du site ChatGames";
         }
         ?></title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="Site/assets/css/style.css">
    
 
     <!-- Fonts Atkinson Import de Google -->
@@ -67,17 +67,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <navbar>
-        <div class ="container">
-            <a><img src="../assets/images/logo.png" class="logo" alt="Logo du Site ChatGames"></a>
-            <a href="index.php?page=accueil"><img src="../assets/images/accueil.png" class="icones" alt="Logo direction accueil">> Accueil</a>
-            <a href="index.php?page=rechercheAmis"><img src="../assets/images/amis.png" class="icones" alt="Logo direction la recherche d'amis">> Recherche amis</a>
-            <a href="index.php?page=communaute"><img src="../assets/images/communauter.png" class="icones" alt="Logo direction la communauté">> Communauté</a>
-            <a href="index.php?page=messagerie"><img src="../assets/images/messagerie.png" class="icones" alt="Logo direction la messagerie">> Messagerie</a>
-            <a href="index.php?page=evenements"><img src="../assets/images/evenement.png" class="icones" alt="Logo direction les évenements">> Évenements</a>
-            <a href="index.php?page=stream"><img src="../assets/images/stream.png" class="icones" alt="Logo direction sur le stream">> Stream</a>
-        </div>
-    </navbar>
+    <div class="layout">
+        <nav class="navbar">
+            <div class="container">
+                <?php $currentPage = $_GET['page'] ?? 'accueil'; ?>
+                <img src="Site/assets/images/logo.png" class="logo" alt="Logo du Site ChatGames">
+                <a href="index.php?page=accueil" class="<?= $currentPage === 'accueil' ? 'active' : '' ?>"><img src="Site/assets/images/accueil.png" class="icones" alt="Accueil"> Accueil</a>
+                <a href="index.php?page=rechercheAmis" class="<?= $currentPage === 'rechercheAmis' ? 'active' : '' ?>"><img src="Site/assets/images/amis.png" class="icones" alt="Amis"> Recherche amis</a>
+                <a href="index.php?page=communaute" class="<?= $currentPage === 'communaute' ? 'active' : '' ?>"><img src="Site/assets/images/communauter.png" class="icones" alt="Communauté"> Communauté</a>
+                <a href="index.php?page=messagerie" class="<?= $currentPage === 'messagerie' ? 'active' : '' ?>"><img src="Site/assets/images/messagerie.png" class="icones" alt="Messagerie"> Messagerie</a>
+                <a href="index.php?page=evenements" class="<?= $currentPage === 'evenements' ? 'active' : '' ?>"><img src="Site/assets/images/evenement.png" class="icones" alt="Événements"> Événements</a>
+                <a href="index.php?page=stream" class="<?= $currentPage === 'stream' ? 'active' : '' ?>"><img src="Site/assets/images/stream.png" class="icones" alt="Stream"> Stream</a>
+            </div>
+        </nav>
+        <main class="content">
     
 
-    <section>

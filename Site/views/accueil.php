@@ -1,4 +1,4 @@
-<div class="containerAccueil">
+<div class="containerBody">
 
     <div class="headerAccueil">
         <h1>Accueil</h1>

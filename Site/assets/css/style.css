@@ -21,14 +21,19 @@ html, body {
     color: #D9D9D9D9;
   }
 
+
+
   /* -------------------- Navbar -------------------- */
   .layout {
     display: flex;
-    height: 100vh; /* toute la hauteur de l'écran */
+    height: 100vh; 
   }
   
   .navbar {
-    width: 259px; /* largeur fixe de la colonne de gauche */
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    width: 259px; 
     background-color: #383838;
     padding: 20px 40px;
     display: flex;
@@ -61,45 +66,143 @@ html, body {
   }
   
   .content {
-    flex: 1; /* prend tout l'espace restant */
+    margin-left: 319px;
+    flex: 1; 
     padding: 20px;
     color: #D9D9D9;
   }
 
+  .containerBody{
+    display: flex;
+    flex-direction: column;
+    padding: 60px 40px;
+  }
   /* -------------------- Accueil -------------------- */
 
-.containerAccueil{
-  display: flex;
-  flex-direction: column;
-  padding: 60px 40px;
-}
+  .headerAccueil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-.headerAccueil{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
+  .headerAccueil h1{
+    flex: 1;
+  }
 
-.headerAccueil h1{
-  flex: 1;
-}
+  .buttonAccueil {
+    display: flex;
+    gap: 20px;
+  }
 
-.buttonAccueil {
-  display: flex;
-  gap: 20px;
-}
-
-.headerAccueil a {
-  color: #D9D9D9;
-  text-decoration: none;
-  padding: 8px 12px 8px 12px;
-  background-color: #0B94ED;
-  border-radius: 12px;
-  font-size: 12px;
-  line-height: 19.6px;
-}
+  .headerAccueil a {
+    color: #D9D9D9;
+    text-decoration: none;
+    padding: 8px 12px 8px 12px;
+    background-color: #0B94ED;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 19.6px;
+  }
 
 
-.headerAccueil a:hover{
-  font-weight: bold; 
-}
+  .headerAccueil a:hover{
+    font-weight: bold; 
+  }
+
+  /* -------------------- Connexion -------------------- */
+  .formulaire {
+    width: 590px;
+    margin: 50px auto;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 46px; 
+  }
+  
+  .input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-group input {
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    padding: 16px 12px;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #D9D9D9;
+    color: #D9D9D9;
+  }
+  
+  .input-group label {
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    color: #D9D9D9;
+    pointer-events: none;
+    transition: 0.2s ease all;
+  }
+  
+  .input-group input:focus {
+    border-bottom: 2px solid #0B94ED;
+    outline: none;
+  }
+  
+  .input-group input:focus + label,
+  .input-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 14px;
+    color: #0B94ED;
+    background-color: #232323;
+    padding: 0 5px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .formulaire button {
+    color: #D9D9D9;
+    text-decoration: none;
+    padding: 14px 24px;
+    background-color: #0B94ED;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 22.4px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .input-group input::placeholder {
+    color: #D9D9D9;
+    opacity: 1; 
+  }
+  
+  
+  .formulaire button:hover {
+    font-weight: bold;
+  }
+  
+  .input-group input::placeholder {
+    color: #D9D9D9;
+    opacity: 1;
+  }
+  
+  .input-group input::-webkit-input-placeholder {
+    color: #D9D9D9;
+  }
+  
+  .input-group input:-moz-placeholder {
+    color: #D9D9D9;
+  }
+  
+  .input-group input::-moz-placeholder {
+    color: #D9D9D9;
+  }
+  
+  .input-group input:-ms-input-placeholder {
+    color: #D9D9D9;
+  }

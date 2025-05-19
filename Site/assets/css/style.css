@@ -109,60 +109,71 @@ html, body {
     font-weight: bold; 
   }
 
-  /* -------------------- Connexion -------------------- */
+  /* -------------------- Connexion / Inscription -------------------- */
+
+      .input-group {
+      width: 410px;
+      height: 80px;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .group-label {
+      font-size: 14px;
+      line-height: 19.6px;
+      color: #D9D9D9;
+    }
+
+    .input {
+      height: 50px;
+      border-radius: 12px;
+      padding: 0 12px;
+      border: none;
+      background-color: #3a3a3a; /* Couleur sombre comme dans l'image */
+      color: #D9D9D9;
+      font-size: 14px;
+      line-height: 19.6px;
+    }
+
+    .input::placeholder {
+      color: #b0b0b0; /* Couleur placeholder visible sur l’image */
+    }
+
+    select {
+      height: 50px;
+      border-radius: 12px;
+      padding: 0 12px;
+      border: none;
+      background-color: #3a3a3a; /* Couleur sombre */
+      color: #D9D9D9;
+      font-size: 14px;
+      line-height: 19.6px;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 12px;
+      cursor: pointer;
+    }
+
+    option {
+      background-color: #2a2a2a;
+      color: #D9D9D9;
+    }  
+
   .formulaire {
-    width: 590px;
+    width: 410px;
     margin: 50px auto;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     gap: 46px; 
   }
-  
-  .input-group {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-group input {
-    width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    padding: 16px 12px;
-    font-size: 16px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #D9D9D9;
-    color: #D9D9D9;
-  }
-  
-  .input-group label {
-    position: absolute;
-    top: 16px;
-    left: 12px;
-    color: #D9D9D9;
-    pointer-events: none;
-    transition: 0.2s ease all;
-  }
-  
-  .input-group input:focus {
-    border-bottom: 2px solid #0B94ED;
-    outline: none;
-  }
-  
-  .input-group input:focus + label,
-  .input-group input:not(:placeholder-shown) + label {
-    top: -10px;
-    font-size: 14px;
-    color: #0B94ED;
-    background-color: #232323;
-    padding: 0 5px;
-  }
-  
-  .form-actions {
-    display: flex;
-    justify-content: center;
-  }
+
   
   .formulaire button {
     color: #D9D9D9;
@@ -176,33 +187,7 @@ html, body {
     cursor: pointer;
   }
 
-  .input-group input::placeholder {
-    color: #D9D9D9;
-    opacity: 1; 
-  }
-  
-  
-  .formulaire button:hover {
-    font-weight: bold;
-  }
-  
-  .input-group input::placeholder {
-    color: #D9D9D9;
-    opacity: 1;
-  }
-  
-  .input-group input::-webkit-input-placeholder {
-    color: #D9D9D9;
-  }
-  
-  .input-group input:-moz-placeholder {
-    color: #D9D9D9;
-  }
-  
-  .input-group input::-moz-placeholder {
-    color: #D9D9D9;
-  }
-  
-  .input-group input:-ms-input-placeholder {
-    color: #D9D9D9;
+  .form-actions{
+    display: flex;
+    justify-content: center;
   }

@@ -78,6 +78,7 @@
                 <a href="index.php?page=messagerie" class="<?= $currentPage === 'messagerie' ? 'active' : '' ?>"><img src="Site/assets/images/messagerie.png" class="icones" alt="Messagerie"> Messagerie</a>
                 <a href="index.php?page=evenements" class="<?= $currentPage === 'evenements' ? 'active' : '' ?>"><img src="Site/assets/images/evenement.png" class="icones" alt="Événements"> Événements</a>
                 <a href="index.php?page=stream" class="<?= $currentPage === 'stream' ? 'active' : '' ?>"><img src="Site/assets/images/stream.png" class="icones" alt="Stream"> Stream</a>
+                <a href="index.php?page=deconnexion" class="<?= $currentPage === 'deconnexion' ? 'active' : '' ?>"><img src="Site/assets/images/deconnexion.png" class="icones" alt="Deconnexion"> Déconnexion</a>
             </div>
         </nav>
         <main class="content">

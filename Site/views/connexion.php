@@ -30,13 +30,13 @@ if (isset($_SESSION["id"])) {
 
     <form class="formulaire" method="post">
         <div class="input-group">
-            <input type="text" name="username" placeholder=" " required>
-            <label>Nom utilisateur</label>
+            <label for="email" class="group-label">E-mail</label>
+            <input type="email" id="email" class="input" placeholder="Mettez votre e-mail" required>
         </div>
 
         <div class="input-group">
-            <input type="password" name="password" placeholder=" " required>
-            <label>Mot de passe</label>
+            <label for="password" class="group-label">Mot de passe</label>
+            <input type="password" id="password" class="input" placeholder="Mettez votre mot de passe" required>
         </div>
 
         <div class="form-actions">

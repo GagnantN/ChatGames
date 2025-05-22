@@ -1,4 +1,8 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once(__DIR__ . '../../bdd/db.php'); // Connexion à la BDD
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -9,14 +13,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérifier que l'utilisateur existe
     $stmt = $dbh->prepare("SELECT * FROM utilisateur WHERE email = :email");
     $stmt->execute([':email' => $email]);
-    $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($utilisateur && password_verify($password, $utilisateur['password'])) {
-        // Connexion réussie
-        $_SESSION['ID_Utilisateur'] = $utilisateur['ID_Utilisateur']; // ou autre identifiant
-        $_SESSION['pseudo'] = $utilisateur['pseudo'];
 
-        // Redirection vers une page protégée (ex: accueil.php)
+    // CORRECTION ICI : utiliser $user et pas $utilisateur
+    if ($user && password_verify($password, $user['password'])) {
+        // Connexion réussie : stocker les infos en session
+        $_SESSION['user'] = [
+            'id' => $user['id_utilisateur'],
+            'pseudo' => $user['pseudo'],
+            'imageProfil' => $user['imageProfil'],
+            'description' => $user['description'],
+            'styleJeu' => $user['styleJeu']
+        ];
+
         header('Location: index.php?page=accueil');
         exit;
     } else {

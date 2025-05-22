@@ -1,8 +1,22 @@
 <?php
-require_once(__DIR__ . '../../bdd/db.php'); // si besoin
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once(__DIR__ . '../../bdd/db.php');
+$isConnected = isset($_SESSION['user']);
 
-$isConnected = isset($_SESSION['ID_Utilisateur']);
+if (isset($_SESSION['user'])) {
+    echo "<p>Connecté avec l'identifiant n° <strong>" . htmlspecialchars($_SESSION['user']['id']) . "</strong></p>";
+} else {
+    echo "<p>Vous n'êtes pas connecté.</p>";
+}
 ?>
+
+<pre>
+<?php print_r($_SESSION); 
+    print_r($user);
+?>
+</pre>
 
 <div class="containerBody">
 
@@ -14,8 +28,8 @@ $isConnected = isset($_SESSION['ID_Utilisateur']);
                 <a href="index.php?page=connexion">Connexion</a>
             <?php else: ?>
                 <a href="index.php?page=profil">
-                    <img src="assets/images/<?= htmlspecialchars($_SESSION['imageProfil'] ?? 'imageProfil.png') ?>" alt="Profil" style="width: 32px; height: 32px; border-radius: 50%; vertical-align: middle;">
-                    <?= htmlspecialchars($_SESSION['pseudo']) ?>
+                    <img src="../../assets/images/<?= htmlspecialchars($_SESSION['user']['imageProfil']) ?>" style="width: 32px; height: 32px; border-radius: 50%; vertical-align: middle;">
+                    <?= htmlspecialchars($_SESSION['user']['pseudo'] ?? '') ?>
                 </a>
             <?php endif; ?>
         </div>

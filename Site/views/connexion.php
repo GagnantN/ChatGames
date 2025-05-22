@@ -1,49 +1,50 @@
 <?php
-require_once(__DIR__ . '../../bdd/functions.php'); // Fichier contenant la connexion à la base
+require_once(__DIR__ . '../../bdd/db.php'); // Connexion à la BDD
 
-if (isset($_SESSION["id"])) {
-    redirect ('index.php?page=inscription');
-    exit();
-} else {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $stmt = $dbh->prepare("SELECT * FROM utilisateur WHERE email = :email");
-        $stmt->execute([':email' => $_POST['email']]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-        if ($user && password_verify($_POST['password'], $user['password'])) {
-            $_SESSION['id_Utilisateur'] = $user['id_Utilisateur'];
-            $_SESSION['nom'] = $user['nom'];
-            $_SESSION['prenom'] = $user['prenom'];
-            $_SESSION['adresse'] = $user['adresse'];
-            $_SESSION['adresse_postal'] = $user['adresse_postal'];
-            $_SESSION['mail'] = $user['mail'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Sécurisation des données
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
 
-            redirect('index.php?page=accueil');
-        } else {
-            $error = "Identifiants incorrects.";
-        }
+    // Vérifier que l'utilisateur existe
+    $stmt = $dbh->prepare("SELECT * FROM utilisateur WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($utilisateur && password_verify($password, $utilisateur['password'])) {
+        // Connexion réussie
+        $_SESSION['ID_Utilisateur'] = $utilisateur['ID_Utilisateur']; // ou autre identifiant
+        $_SESSION['pseudo'] = $utilisateur['pseudo'];
+
+        // Redirection vers une page protégée (ex: accueil.php)
+        header('Location: index.php?page=accueil');
+        exit;
+    } else {
+        $erreur = "E-mail ou mot de passe incorrect.";
     }
 }
 ?>
+
 <div class="containerBody">
     <h1>Connexion</h1>
+
+    <?php if (!empty($erreur)) : ?>
+        <p style="color: red;"><?= htmlspecialchars($erreur) ?></p>
+    <?php endif; ?>
 
     <form class="formulaire" method="post">
         <div class="input-group">
             <label for="email" class="group-label">E-mail</label>
-            <input type="email" id="email" class="input" placeholder="Mettez votre e-mail" required>
+            <input type="email" id="email" name="email" class="input" placeholder="Mettez votre e-mail" required>
         </div>
 
         <div class="input-group">
             <label for="password" class="group-label">Mot de passe</label>
-            <input type="password" id="password" class="input" placeholder="Mettez votre mot de passe" required>
+            <input type="password" id="password" name="password" class="input" placeholder="Mettez votre mot de passe" required>
         </div>
 
         <div class="form-actions">
             <button type="submit">Connexion</button>
         </div>
     </form>
-
-    
-
 </div>

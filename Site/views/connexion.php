@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-    // CORRECTION ICI : utiliser $user et pas $utilisateur
     if ($user && password_verify($password, $user['password'])) {
         // Connexion réussie : stocker les infos en session
         $_SESSION['user'] = [

@@ -1,7 +1,5 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+
 require_once(__DIR__ . '../../bdd/db.php'); 
 ?>
 
@@ -75,7 +73,7 @@ require_once(__DIR__ . '../../bdd/db.php');
 </head>
 <body>
     <?php 
-        $isConnected = isset($_SESSION['user']) && isset($_SESSION['user']['id_utilisateur']); 
+        $isConnected = isset($_SESSION['user']) && isset($_SESSION['user']['id']); 
         $disabledClass = !$isConnected ? 'disabled' : '';
     ?>
 
@@ -90,7 +88,7 @@ require_once(__DIR__ . '../../bdd/db.php');
                 <a href="<?= $isConnected ? 'index.php?page=messagerie' : '#' ?>" class="<?= $currentPage === 'messagerie' ? 'active' : '' ?>  <?= $disabledClass ?>"><img src="Site/assets/images/messagerie.png" class="icones" alt="Messagerie"> Messagerie</a>
                 <a href="index.php?page=evenements" class="<?= $currentPage === 'evenements' ? 'active' : '' ?>"><img src="Site/assets/images/evenement.png" class="icones" alt="Événements"> Événements</a>
                 <a href="index.php?page=stream" class="<?= $currentPage === 'stream' ? 'active' : '' ?>"><img src="Site/assets/images/stream.png" class="icones" alt="Stream"> Stream</a>
-                <a href="<?= $isConnected ? 'index.php?page=deconnexion' : '#' ?>" class="<?= $currentPage === 'deconnexion' ? 'active' : '' ?> <?= $disabledClass ?>"><img src="Site/assets/images/deconnexion.png" class="icones" alt="Déconnexion"> Déconnexion </a>
+                <a href="<?= $isConnected ? 'index.php?page=deconnexion' : '#' ?>" class="<?= $currentPage === 'deconnexion' ? 'active' : '' ?> <?= $disabledClass ?> "><img src="Site/assets/images/deconnexion.png" class="icones" alt="Déconnexion"> Déconnexion </a>
             </div>
         </nav>
         <main class="content">

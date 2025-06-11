@@ -28,7 +28,7 @@ if (isset($_SESSION['user'])) {
                 <a href="index.php?page=connexion">Connexion</a>
             <?php else: ?>
                 <a href="index.php?page=profil">
-                    <img src="../../assets/images/<?= htmlspecialchars($_SESSION['user']['imageProfil']) ?>" style="width: 32px; height: 32px; border-radius: 50%; vertical-align: middle;">
+                    <img src="Site/assets/images/<?= htmlspecialchars($_SESSION['user']['imageProfil']) ?>" style="width: 32px; height: 32px; border-radius: 50%; vertical-align: middle;">
                     <?= htmlspecialchars($_SESSION['user']['pseudo'] ?? '') ?>
                 </a>
             <?php endif; ?>

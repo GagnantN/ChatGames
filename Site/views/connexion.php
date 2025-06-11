@@ -23,7 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pseudo' => $user['pseudo'],
             'imageProfil' => $user['imageProfil'],
             'description' => $user['description'],
-            'styleJeu' => $user['styleJeu']
+            'styleJeu' => $user['styleJeu'],
+            'langue' => $user['langue'],
+            'age' => $user['age']
         ];
 
         header('Location: index.php?page=accueil');

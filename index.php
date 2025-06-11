@@ -1,20 +1,26 @@
 <?php
+    session_start();
+    $page = $_GET['page'] ?? 'accueil';
 
-$page = $_GET['page'] ?? 'accueil';
+    $isAjax = !empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+            strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
 
-// Inclusion de la sidebar
-include('Site/includes/menu.php');
+    if (!$isAjax) {
+        include('Site/includes/head.php');
+        include('Site/includes/menu.php');
+        echo '<main class="content">';
+    }
 
-// Chemin du fichier à inclure
-$pageFile = __DIR__ . '/Site/views/' . $page . '.php';
+    $pageFile = __DIR__ . '/Site/views/' . $page . '.php';
 
-// Vérifier si le fichier de la page demandée existe
-if (file_exists($pageFile)) {
-    include($pageFile); // Charger le contenu de la page demandée
-} else {
-    echo "<p>La page demandée n'existe pas.</p>"; // Message d'erreur si la page n'existe pas
-}
+    if (file_exists($pageFile)) {
+        include($pageFile);
+    } else {
+        echo "<p>La page demandée n'existe pas.</p>";
+    }
 
-// Inclusion du footer non apparant
-include('Site/includes/footer.php');
+    if (!$isAjax) {
+        echo '</main>';
+        include('Site/includes/footer.php');
+    }
 ?>

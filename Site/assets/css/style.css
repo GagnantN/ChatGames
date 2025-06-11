@@ -66,7 +66,7 @@ html, body {
   }
   
   .content {
-    margin-left: 319px;
+    margin-left: 170px;
     flex: 1; 
     padding: 20px;
     color: #D9D9D9;
@@ -89,6 +89,10 @@ html, body {
   .disabled img.icones {
       filter: grayscale(100%);
       opacity: 0.5;
+  }
+
+  .menu-hidden {
+    display: none;
   }
 
   /* -------------------- Accueil -------------------- */
@@ -205,3 +209,114 @@ html, body {
     display: flex;
     justify-content: center;
   }
+
+  /* -------------------- Profil -------------------- */
+.containerHeaderProfil {
+    display: flex;
+    align-items: center;
+    height: 128px;
+    width: auto;
+    padding: 16px 20px;
+    background-color: #383838;
+    color: white; /* Pour un meilleur contraste si fond sombre */
+    gap: 16px; 
+}
+
+.containerHeaderProfil img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #232323;
+
+}
+
+.containerHeaderProfil .info {
+    max-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    padding: 16px 20px;
+    gap: 8px;
+}
+
+.containerHeaderProfil .title {
+  font-size: 24px;
+  line-height: 26.4px;
+  font-weight: bold;
+}
+
+.containerHeaderProfil p {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  line-height: 1.2;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.containerHeaderProfil a {
+    color: #D9D9D9;
+    margin-left: auto;
+    text-decoration: none;
+    padding: 14px 24px;
+    background-color: #0B94ED;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 19.6px;
+    border: none;
+    cursor: pointer;
+}
+
+/* -------------------- Profil Button -------------------- */
+
+.tabs {
+  display: flex;
+  height: 31px;
+  border-bottom: 1px solid #D9D9D9; /* ligne en bas englobant les 4 boutons */
+  width: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.tabs button {
+  font-family: 'Montserrat', sans-serif;
+  flex: 1; /* chaque bouton prend une largeur égale */
+  background: none;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  padding: 16px 20px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D9D9D9;
+}
+
+/* Ligne verticale de 20px entre les boutons sauf le dernier */
+.tabs button:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px; /* hauteur de la ligne */
+  width: 1px; /* épaisseur */
+  background-color: #D9D9D9; /* couleur de la ligne */
+}
+
+.tabs button:hover {
+  font-weight: bold;
+}
+
+.tabs button.active {
+  font-weight: bold;
+  color: #0B94ED; 
+}
+
+#contenu-dynamique.pleinLargeur {
+    margin-left: 0; /* ou width: 100% si layout en flex */
+}

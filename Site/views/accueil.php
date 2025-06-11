@@ -5,18 +5,13 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once(__DIR__ . '../../bdd/db.php');
 $isConnected = isset($_SESSION['user']);
 
-if (isset($_SESSION['user'])) {
-    echo "<p>Connecté avec l'identifiant n° <strong>" . htmlspecialchars($_SESSION['user']['id']) . "</strong></p>";
-} else {
-    echo "<p>Vous n'êtes pas connecté.</p>";
-}
 ?>
 
-<pre>
+<!-- <pre>
 <?php print_r($_SESSION); 
     print_r($user);
 ?>
-</pre>
+</pre> -->
 
 <div class="containerBody">
 

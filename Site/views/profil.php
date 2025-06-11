@@ -2,10 +2,6 @@
     require_once(__DIR__ . '../../bdd/db.php'); 
     $ajaxPages = ['details', 'jeu', 'event', 'communaute'];
     $currentPage = $_GET['page'] ?? 'details';
-
-    // if (!in_array($currentPage, $ajaxPages)) {
-    //     include('Site/includes/menu.php'); // ou ton fichier contenant la navbar
-    // }
 ?>
 
 
@@ -23,7 +19,7 @@
 </div>
 
 <div class="tabs">
-    <button data-page="index.php?page=details">Détails</button>
+    <button data-page="index.php?page=details" class="active">Détails</button>
     <button data-page="index.php?page=jeu">Jeux</button>
     <button data-page="index.php?page=event">Évènements</button>
     <button data-page="index.php?page=communaute">Communauté</button>

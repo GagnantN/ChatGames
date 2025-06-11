@@ -67,6 +67,7 @@ html, body {
   
   .content {
     margin-left: 170px;
+    margin-top: -2.5%;
     flex: 1; 
     padding: 20px;
     color: #D9D9D9;
@@ -319,4 +320,61 @@ html, body {
 
 #contenu-dynamique.pleinLargeur {
     margin-left: 0; /* ou width: 100% si layout en flex */
+}
+
+/* -------------------- Profil Onglet -------------------- */
+
+.onglet {
+  margin-top: 40px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.onglet h1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  line-height: 26.4px;
+  color: #D9D9D9;
+}
+
+.onglet .encadrement{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  height: auto;
+  width: auto;
+  background-color: #383838;
+  border-radius: 12px;
+}
+
+.jours-groupes {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.jour-colonne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.jour-colonne h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #D9D9D9;
+  margin-bottom: 8px;
+}
+
+.jour-colonne img {
+  height: 64px;
+  width: 80px;
+  padding: 8px;
+  border-radius: 8px;
 }
